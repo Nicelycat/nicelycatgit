@@ -2,55 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Sunken Fate – Home</title>
+  <title>🎄 The Sunken Fate – Christmas Edition 🎄</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#111113;--surface:#1a1a1d;--card:#252528;--accent:#ff4500;--light:#ffffff;--grey:#888898;--radius:12px;--max:1100px}
+    :root{--bg:#0a1929;--surface:#0d2b1e;--card:#1a3a2a;--accent:#dc143c;--light:#ffffff;--grey:#c8e6c9;--radius:12px;--max:1100px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     img{display:block;max-width:100%}
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--light);line-height:1.6;-webkit-font-smoothing:antialiased}
-    header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:var(--surface);border-bottom:2px solid var(--accent);position:sticky;top:0;z-index:10}
-    .logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:1px}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--light);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}
+    .snowflake{position:fixed;top:-10px;z-index:1000;color:var(--light);user-select:none;pointer-events:none;animation:snowfall linear infinite;font-size:1rem}
+    @keyframes snowfall{0%{transform:translateY(-100vh) rotate(0deg)}100%{transform:translateY(100vh) rotate(360deg)}}
+    header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:var(--surface);border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:10}
+    .logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:1px;text-shadow:0 0 10px rgba(220,20,60,0.5)}
     #ham{display:none;background:none;border:none;color:var(--light);font-size:1.4rem;cursor:pointer}
     nav a{color:var(--light);text-decoration:none;margin-left:1.25rem;font-weight:600;transition:color .2s}nav a:hover{color:var(--accent)}
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;position:relative;overflow:hidden}
+    .hero{display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;position:relative;overflow:hidden;background:linear-gradient(180deg, var(--bg) 0%, rgba(13,43,30,0.8) 100%)}
     .hero-text{z-index:2}
     .hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,5.5vw,3.5rem);margin-bottom:.5rem;letter-spacing:1px;text-transform:uppercase}
-    .hero p{margin-bottom:1.5rem;font-size:1.15rem;opacity:.9}
     .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
-    .cta{display:inline-block;background:var(--accent);color:var(--light);padding:.75rem 1.75rem;border-radius:var(--radius);font-weight:700;text-decoration:none;transition:transform .2s}
-    .cta:hover{transform:scale(1.05)}
-    .glow{position:absolute;width:200%;height:200%;background:radial-gradient(circle,rgba(255,69,0,.25) 0%,transparent 40%);animation:spin 20s linear infinite}
+    .cta{display:inline-block;background:var(--accent);color:var(--light);padding:.75rem 1.75rem;border-radius:var(--radius);font-weight:700;text-decoration:none;transition:transform .2s, box-shadow .2s;box-shadow:0 4px 15px rgba(220,20,60,0.4)}
+    .cta:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(220,20,60,0.6)}
+    .glow{position:absolute;width:200%;height:200%;background:radial-gradient(circle,rgba(255,215,0,0.3) 0%,rgba(220,20,60,0.2) 30%,transparent 50%);animation:spin 25s linear infinite}
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
     .about{padding:3.5rem 1rem;max-width:800px;margin:auto;text-align:center;font-size:1.1rem;opacity:.9}
-    .about h2{font-family:'Orbitron',sans-serif;font-size:1.75rem;margin-bottom:.5rem;color:var(--accent)}
-    footer{text-align:center;padding:2rem 1rem;font-size:.85rem;background:var(--surface);color:var(--grey)}@media(max-width:700px){
-      nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid #333}nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid #333}}
+    .about h2{font-family:'Orbitron',sans-serif;font-size:1.75rem;margin-bottom:.5rem;color:var(--accent);text-shadow:0 0 10px rgba(220,20,60,0.3)}
+    footer{text-align:center;padding:2rem 1rem;font-size:.85rem;background:var(--surface);color:var(--grey)}
+    @media(max-width:700px){
+      nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid var(--accent)}nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid rgba(220,20,60,0.3)}
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">THE SUNKEN FATE V2</div>
+  <div class="logo">🎄 THE SUNKEN FATE V2 🎄</div>
   <button id="ham">☰</button>
   <nav id="nav">
     <a href="index.html">Home</a>
-    <a href="Games.html">Games</a>
-    <a href="prox.html">Pr0xy</a>
-    <a href="Settings.html">Settings</a>
+    <a href="Games.html">🎮 Games</a>
+    <a href="prox.html">🎁 Pr0xy</a>
+    <a href="Settings.html">⚙️ Settings</a>
     <a href="About.html">About</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-text">
-    <h1>Unblocked Games & Apps</h1>
-    <p>Jump in at school, work, or anywhere fun is usually forbidden—no installs, no limits.</p>
+    <h1>🎅 Unblocked Games & Apps 🎄</h1>
     <div class="hero-btns">
-      <a href="Games.html" class="cta">Play Games</a>
-      <a href="Apps.html" class="cta">Launch Apps</a>
-      <a href="Settings.html" class="cta">Settings</a>
+      <a href="Games.html" class="cta">🎮 Play Games</a>
+      <a href="Apps.html" class="cta">📱 Launch Apps</a>
+      <a href="Settings.html" class="cta">⚙️ Settings</a>
     </div>
   </div>
   <div class="glow"></div>
@@ -58,15 +60,29 @@
 
 <section id="about" class="about">
   <h2>What is The Sunken Fate?</h2>
-  <p>We hand-pick the smoothest, most-played unblocked games and apps so you can jump in at school, work, or anywhere fun is usually “not allowed.” Everything loads fast, runs offline once cached, and never asks for personal info.</p>
+  <p>We've decked the halls with the smoothest unblocked games and apps! Whether you're on the naughty or nice list, jump in at school, work, or anywhere fun is usually "not allowed." Everything loads fast, runs offline once cached, and never asks for personal info. Happy Holidays! ❄️</p>
 </section>
 
-<footer>© <span id="yr"></span> The Sunken Fate</footer>
+<footer>🎄 © <span id="yr"></span> The Sunken Fate | Merry Christmas & Happy Gaming! 🎄</footer>
 
 <script>
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.innerHTML = '❄️';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+    snowflake.style.opacity = Math.random();
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 8000);
+  }
+  setInterval(createSnowflake, 300);
+  
   document.getElementById('ham').onclick = () => document.getElementById('nav').classList.toggle('open');
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
+
