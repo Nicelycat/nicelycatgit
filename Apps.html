@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Sunken Fate – Apps</title>
+  <title>🎄 The Sunken Fate – Christmas Apps 🎄</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@800&display=swap" rel="stylesheet">
-  <!-- icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #111113;
-      --surface: #1a1a1d;
-      --card:  #252528;
-      --accent: #ff4500;
-      --light:  #ffffff;
-      --grey:   #888898;
+      --bg: #0a1929;
+      --surface: #0d2b1e;
+      --card: #1a3a2a;
+      --accent: #dc143c;
+      --light: #ffffff;
+      --grey: #c8e6c9;
       --radius: 12px;
       --max: 1100px;
     }
@@ -30,17 +28,36 @@
       color: var(--light);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Snow Effect */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 1000;
+      color: var(--light);
+      user-select: none;
+      pointer-events: none;
+      animation: snowfall linear infinite;
+      font-size: 1rem;
+    }
+    @keyframes snowfall {
+      0% { transform: translateY(-100vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
     }
 
     /* ---- header ---- */
     header {
       display: flex; align-items: center; justify-content: space-between;
       padding: .75rem 1.25rem; background: var(--surface);
-      border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 10;
+      border-bottom: 3px solid var(--accent); position: sticky; top: 0; z-index: 10;
     }
     .logo {
       font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.5rem;
       color: var(--accent); letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
     }
     #ham { display: none; background: none; border: none; color: var(--light); font-size: 1.4rem; cursor: pointer; }
     nav a { color: var(--light); text-decoration: none; margin-left: 1.25rem; font-weight: 600; transition: color .2s; }
@@ -50,7 +67,7 @@
     h1 {
       font-family: 'Orbitron', sans-serif; font-size: 2.2rem; text-align: center;
       margin: 2.5rem 0 1.5rem; letter-spacing: 1px;
-      background: linear-gradient(135deg, var(--accent) 0%, #ff8c42 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #ffd700 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
@@ -63,7 +80,7 @@
       box-shadow: inset 0 0 8px rgba(0,0,0,.4), 0 5px 15px rgba(0,0,0,.2);
       transition: box-shadow .3s;
     }
-    .search-bar:focus { outline: none; box-shadow: inset 0 0 8px rgba(0,0,0,.4), 0 0 20px rgba(255,69,0,.35); }
+    .search-bar:focus { outline: none; box-shadow: inset 0 0 8px rgba(0,0,0,.4), 0 0 20px rgba(220, 20, 60, .35); }
     .search-icon { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--accent); }
 
     /* ---- category filter ---- */
@@ -75,10 +92,10 @@
       color: var(--light); border: 1px solid var(--accent); font-family: 'Inter', sans-serif;
       font-size: .85rem; cursor: pointer; transition: all .3s;
     }
-    .category-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,69,0,.25); }
+    .category-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(220, 20, 60, .25); }
     .category-btn.active {
       background: var(--accent); color: var(--light); border-color: var(--accent);
-      box-shadow: 0 5px 15px rgba(255,69,0,.4);
+      box-shadow: 0 5px 15px rgba(220, 20, 60, .4);
     }
 
     /* ---- apps grid ---- */
@@ -90,20 +107,181 @@
       background: var(--card); border-radius: var(--radius); aspect-ratio: 1;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; text-decoration: none; color: var(--light);
-      border: 1px solid rgba(255,69,0,.15); box-shadow: 0 8px 20px rgba(0,0,0,.25);
+      border: 1px solid rgba(220, 20, 60, .15); box-shadow: 0 8px 20px rgba(0,0,0,.25);
       transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
       position: relative; overflow: hidden;
     }
     .app-card:hover {
       transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(255,69,0,.25);
-      border-color: rgba(255,69,0,.4);
+      box-shadow: 0 15px 30px rgba(220, 20, 60, .25);
+      border-color: rgba(220, 20, 60, .4);
     }
     .app-icon {
       width: 56px; height: 56px; border-radius: 12px; object-fit: cover;
       margin-bottom: .75rem; border: 2px solid transparent;
       background: linear-gradient(var(--card), var(--card)) padding-box,
-                  linear-gradient(135deg, var(--accent), #ff8c42) border-box;
+                  linear-gradient(135deg, var(--accent), #ffd700) border-box;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    }
+    .app-name {
+      font-size: .95rem; font-weight: 600; letter-spacing: .5px;
+      background: linear-gradient(135deg, var(--light), #ffb3a0);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    /* ---- add app button ---- */
+    .add-app-btn { background: rgba(37,37,40,.3); border: 2px dashed var(--accent); }
+    .add-app-btn:hover { background: rgba(37,37,40,.5); border-style: solid; }
+    .add-app-icon { font-size: 2.2rem; color: var(--accent); margin-bottom: .5rem; }
+
+    /* ---- footer ---- */
+    footer { text-align: center; padding: 2rem 1rem; font-size: .85rem; color: var(--grey); background: var(--surface); }
+
+    /* ---- mobile nav ---- */
+    @media (max-width: 700px) {
+      nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--accent); }
+      nav.open { display: flex; }
+      #ham { display: block; }
+      nav a { margin: 0; padding: .8rem 1.2rem; border-bottom: 1px solid rgba(220, 20, 60, .3); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🎄 THE SUNKEN FATE 🎄</div>
+  <button id="ham">☰</button>
+  <nav id="nav">
+    <a href="index.html">Home</a>
+    <a href="Games.html">🎮 Games</a>
+    <a href="Apps.html">📱 Apps</a>
+  </nav>
+</header>
+
+<h1>🎅 Apps</h1>
+
+<div class="search-container">
+  <i class="fas fa-search search-icon"></i>
+  <input type="text" class="search-bar" id="searchBar" placeholder="Search festive apps...">
+</div>
+
+<div class="category-filter">
+  <button class="category-btn active" data-cat="all">All</button>
+  <button class="category-btn" data-cat="social">Social</button>
+  <button class="category-btn" data-cat="games">Games</button>
+  <button class="category-btn" data-cat="tools">Tools</button>
+  <button class="category-btn" data-cat="education">Education</button>
+</div>
+
+<div class="apps-grid" id="appGrid">
+  <!-- TikTok -->
+  <a href="/static/embed.html#https://tiktok.com" class="app-card" data-cat="social">
+    <img src="https://sf-tb-sg.ibytedtos.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png" alt="TikTok" class="app-icon">
+    <span class="app-name">TikTok</span>
+  </a>
+
+  <!-- Twitch -->
+  <a href="/static/embed.html#https://twitch.tv" class="app-card" data-cat="social">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968819.png" alt="Twitch" class="app-icon">
+    <span class="app-name">Twitch</span>
+  </a>
+
+  <!-- Google -->
+  <a href="/static/embed.html#https://google.com" class="app-card" data-cat="tools">
+    <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" class="app-icon">
+    <span class="app-name">Google</span>
+  </a>
+
+  <!-- now.gg -->
+  <a href="/static/embed.html#https://now.gg" class="app-card" data-cat="games">
+    <img src="https://play-lh.googleusercontent.com/4HXQ3J_VX4QEMVQ6JvBVQr1X7bz0YJ-2qY9TOfIGK9_1HxE9Jwwh0L9kQr7JmBqYJY=w240-h480-rw" alt="now.gg" class="app-icon">
+    <span class="app-name">now.gg</span>
+  </a>
+
+  <!-- VS Code -->
+  <a href="/static/embed.html#https://vscode.dev" class="app-card" data-cat="tools">
+    <img src="https://code.visualstudio.com/assets/images/code-stable.png" alt="VS Code" class="app-icon">
+    <span class="app-name">VS Code</span>
+  </a>
+
+  <!-- HTML Unleashed -->
+  <a href="https://html-unleashed.pages.dev" class="app-card" data-cat="education">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML Unleashed" class="app-icon">
+    <span class="app-name">HTML Unleashed</span>
+  </a>
+
+  <!-- YouTube -->
+  <a href="/static/embed.html#https://youtube.com" class="app-card" data-cat="social">
+    <img src="https://www.youtube.com/s/desktop/d743f786/img/favicon_144x144.png" alt="YouTube" class="app-icon">
+    <span class="app-name">YouTube</span>
+  </a>
+
+  <!-- Discord -->
+  <a href="/static/embed.html#https://discord.com" class="app-card" data-cat="social">
+    <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="app-icon">
+    <span class="app-name">Discord</span>
+  </a>
+
+  <!-- Add App -->
+  <div class="app-card add-app-btn" id="addAppBtn">
+    <i class="material-icons add-app-icon">add</i>
+    <span class="app-name">Add App</span>
+  </div>
+</div>
+
+<footer>🎄 © <span id="yr"></span> The Sunken Fate | Merry Christmas & Happy Gaming! 🎄</footer>
+
+<script>
+  // Falling Snow Effect
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.innerHTML = '❄️';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+    snowflake.style.opacity = Math.random();
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 8000);
+  }
+  setInterval(createSnowflake, 300);
+
+  // mobile nav
+  document.getElementById('ham').onclick = () => document.getElementById('nav').classList.toggle('open');
+  
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // search + filter
+  const searchBar = document.getElementById('searchBar');
+  const catBtns   = document.querySelectorAll('.category-btn');
+  const cards     = document.querySelectorAll('.app-card:not(#addAppBtn)');
+
+  function filterApps() {
+    const cat  = document.querySelector('.category-btn.active').dataset.cat;
+    const term = searchBar.value.toLowerCase();
+    cards.forEach(c => {
+      const matchesCat  = cat === 'all' || c.dataset.cat === cat;
+      const matchesTerm = c.querySelector('.app-name').textContent.toLowerCase().includes(term);
+      c.style.display = (matchesCat && matchesTerm) ? 'flex' : 'none';
+    });
+  }
+  searchBar.addEventListener('input', filterApps);
+  catBtns.forEach(btn => btn.addEventListener('click', function() {
+    catBtns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    filterApps();
+  }));
+
+  // add-app placeholder
+  document.getElementById('addAppBtn').addEventListener('click', () => {
+    const url = prompt('App URL:');
+    if (url) alert('Demo: app would be added to localStorage in a real build.');
+  });
+</script>
+
+</body>
+</html>
       box-shadow: 0 4px 12px rgba(0,0,0,.3);
     }
     .app-name {
