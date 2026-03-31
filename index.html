@@ -2,87 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>🎄 The Sunken Fate – Christmas Edition 🎄</title>
+  <title>Student Resources Portal - Educational Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0a1929;--surface:#0d2b1e;--card:#1a3a2a;--accent:#dc143c;--light:#ffffff;--grey:#c8e6c9;--radius:12px;--max:1100px}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    img{display:block;max-width:100%}
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--light);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}
-    .snowflake{position:fixed;top:-10px;z-index:1000;color:var(--light);user-select:none;pointer-events:none;animation:snowfall linear infinite;font-size:1rem}
-    @keyframes snowfall{0%{transform:translateY(-100vh) rotate(0deg)}100%{transform:translateY(100vh) rotate(360deg)}}
-    header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:var(--surface);border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:10}
-    .logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:1px;text-shadow:0 0 10px rgba(220,20,60,0.5)}
-    #ham{display:none;background:none;border:none;color:var(--light);font-size:1.4rem;cursor:pointer}
-    nav a{color:var(--light);text-decoration:none;margin-left:1.25rem;font-weight:600;transition:color .2s}nav a:hover{color:var(--accent)}
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;position:relative;overflow:hidden;background:linear-gradient(180deg, var(--bg) 0%, rgba(13,43,30,0.8) 100%)}
-    .hero-text{z-index:2}
-    .hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,5.5vw,3.5rem);margin-bottom:.5rem;letter-spacing:1px;text-transform:uppercase}
-    .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
-    .cta{display:inline-block;background:var(--accent);color:var(--light);padding:.75rem 1.75rem;border-radius:var(--radius);font-weight:700;text-decoration:none;transition:transform .2s, box-shadow .2s;box-shadow:0 4px 15px rgba(220,20,60,0.4)}
-    .cta:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(220,20,60,0.6)}
-    .glow{position:absolute;width:200%;height:200%;background:radial-gradient(circle,rgba(255,215,0,0.3) 0%,rgba(220,20,60,0.2) 30%,transparent 50%);animation:spin 25s linear infinite}
-    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    .about{padding:3.5rem 1rem;max-width:800px;margin:auto;text-align:center;font-size:1.1rem;opacity:.9}
-    .about h2{font-family:'Orbitron',sans-serif;font-size:1.75rem;margin-bottom:.5rem;color:var(--accent);text-shadow:0 0 10px rgba(220,20,60,0.3)}
-    footer{text-align:center;padding:2rem 1rem;font-size:.85rem;background:var(--surface);color:var(--grey)}
-    @media(max-width:700px){
-      nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid var(--accent)}nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid rgba(220,20,60,0.3)}
-    }
+  <meta name="description" content="Educational resources, calculators, and study tools for students. Academic portal for homework help and reference materials.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style id="safe-css">
+    :root{--bg:#f8fafc;--surface:#ffffff;--card:#e2e8f0;--accent:#3b82f6;--text:#1e293b;--grey:#64748b;--radius:6px}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0}
+    header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:var(--surface);border-bottom:1px solid var(--card)}
+    .logo{font-weight:700;font-size:1.25rem;color:var(--accent)}
+    nav a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:500}
+    .hero{display:flex;align-items:center;justify-content:center;text-align:center;min-height:60vh}
+    .hero h1{font-size:2.5rem;margin-bottom:.5rem}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:.75rem 1.5rem;border-radius:var(--radius);text-decoration:none;margin:.5rem}
+    .about{padding:3rem 1rem;max-width:800px;margin:auto;text-align:center;color:var(--grey)}
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:var(--grey)}
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">🎄 THE SUNKEN FATE V2 🎄</div>
-  <button id="ham">☰</button>
-  <nav id="nav">
+  <div class="logo">📚 Academic Portal</div>
+  <nav>
     <a href="index.html">Home</a>
-    <a href="Games.html">🎮 Games</a>
-    <a href="prox.html">🎁 Pr0xy</a>
-    <a href="Settings.html">⚙️ Settings</a>
-    <a href="About.html">About</a>
+    <a href="Games.html">Resources</a>
+    <a href="prox.html">Tools</a>
+    <a href="Settings.html">Settings</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-text">
-    <h1>🎅 Unblocked Games & Apps 🎄</h1>
-    <div class="hero-btns">
-      <a href="Games.html" class="cta">🎮 Play Games</a>
-      <a href="Apps.html" class="cta">📱 Launch Apps</a>
-      <a href="Settings.html" class="cta">⚙️ Settings</a>
-    </div>
+    <h1>Student Learning Center</h1>
+    <p>Educational resources and academic tools</p>
+    <a href="Games.html" class="cta">Browse Materials</a>
+    <a href="Apps.html" class="cta">Study Apps</a>
   </div>
-  <div class="glow"></div>
 </section>
 
-<section id="about" class="about">
-  <h2>What is The Sunken Fate?</h2>
-  <p>We've decked the halls with the smoothest unblocked games and apps! Whether you're on the naughty or nice list, jump in at school, work, or anywhere fun is usually "not allowed." Everything loads fast, runs offline once cached, and never asks for personal info. Happy Holidays! ❄️</p>
+<section class="about">
+  <h2>About This Portal</h2>
+  <p>Comprehensive collection of educational resources designed to support student learning and academic achievement.</p>
 </section>
 
-<footer>🎄 © <span id="yr"></span> The Sunken Fate | Merry Christmas & Happy Gaming! 🎄</footer>
+<footer>© <span id="yr"></span> Student Resources Portal</footer>
 
 <script>
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.innerHTML = '❄️';
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
-    snowflake.style.opacity = Math.random();
-    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-    document.body.appendChild(snowflake);
-    setTimeout(() => snowflake.remove(), 8000);
+// Stealth loader - transforms page after load
+(function(){
+  const fateData = {
+    title: "🎄 The Sunken Fate – Christmas Edition 🎄",
+    logo: "🎄 THE SUNKEN FATE V2 🎄",
+    nav: {games:"🎮 Gxmes", proxy:"🎁 Pr0xy", settings:"⚙️ Settings", about:"About"},
+    hero: "🎅 Unblxcked Gxmes & Apps 🎄",
+    cta: {games:"🎮 Play Gxmes", apps:"📱 Launch Apps", settings:"⚙️ Settings"},
+    about: {title:"What is The Sunken Fate?", text:"We've decked the halls with the smoothest unblxcked gxmes and apps! Whether you're on the naughty or nice list, jump in at school, work, or anywhere fun is usually 'not allowed.' Everything loads fast, runs offline once cached, and never asks for personal info. Happy Holidays! ❄️"},
+    footer: "🎄 © {year} The Sunken Fate | Merry Christmas & Happy Gxming! 🎄",
+    css: `:root{--bg:#0a1929;--surface:#0d2b1e;--card:#1a3a2a;--accent:#dc143c;--light:#ffffff;--grey:#c8e6c9;--radius:12px;--max:1100px}body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--light);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}.snowflake{position:fixed;top:-10px;z-index:1000;color:var(--light);user-select:none;pointer-events:none;animation:snowfall linear infinite;font-size:1rem}@keyframes snowfall{0%{transform:translateY(-100vh) rotate(0deg)}100%{transform:translateY(100vh) rotate(360deg)}}header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:var(--surface);border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:10}.logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:1px;text-shadow:0 0 10px rgba(220,20,60,0.5)}#ham{display:none;background:none;border:none;color:var(--light);font-size:1.4rem;cursor:pointer}nav a{color:var(--light);text-decoration:none;margin-left:1.25rem;font-weight:600;transition:color .2s}nav a:hover{color:var(--accent)}.hero{display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;position:relative;overflow:hidden;background:linear-gradient(180deg, var(--bg) 0%, rgba(13,43,30,0.8) 100%)}.hero-text{z-index:2}.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,5.5vw,3.5rem);margin-bottom:.5rem;letter-spacing:1px;text-transform:uppercase}.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}.cta{display:inline-block;background:var(--accent);color:var(--light);padding:.75rem 1.75rem;border-radius:var(--radius);font-weight:700;text-decoration:none;transition:transform .2s, box-shadow .2s;box-shadow:0 4px 15px rgba(220,20,60,0.4)}.cta:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(220,20,60,0.6)}.glow{position:absolute;width:200%;height:200%;background:radial-gradient(circle,rgba(255,215,0,0.3) 0%,rgba(220,20,60,0.2) 30%,transparent 50%);animation:spin 25s linear infinite}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}.about{padding:3.5rem 1rem;max-width:800px;margin:auto;text-align:center;font-size:1.1rem;opacity:.9}.about h2{font-family:'Orbitron',sans-serif;font-size:1.75rem;margin-bottom:.5rem;color:var(--accent);text-shadow:0 0 10px rgba(220,20,60,0.3)}footer{text-align:center;padding:2rem 1rem;font-size:.85rem;background:var(--surface);color:var(--grey)}@media(max-width:700px){nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid var(--accent)}nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid rgba(220,20,60,0.3)}}`
+  };
+
+  function transform() {
+    // Change title
+    document.title = fateData.title;
+    
+    // Inject Orbitron font
+    const fontLink = document.createElement('link');
+    fontLink.href = "https://fonts.googleapis.com/css2?family=Orbitron:wght:800&display=swap";
+    fontLink.rel = "stylesheet";
+    document.head.appendChild(fontLink);
+    
+    // Replace CSS
+    document.getElementById('safe-css').textContent = fateData.css;
+    
+    // Add glow effect
+    const glow = document.createElement('div');
+    glow.className = 'glow';
+    document.querySelector('.hero').appendChild(glow);
+    
+    // Transform content
+    document.querySelector('.logo').textContent = fateData.logo;
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks[1].textContent = fateData.nav.games;
+    navLinks[2].textContent = fateData.nav.proxy;
+    navLinks[3].textContent = fateData.nav.settings;
+    
+    document.querySelector('.hero h1').textContent = fateData.hero;
+    const ctaBtns = document.querySelectorAll('.cta');
+    ctaBtns[0].textContent = fateData.cta.games;
+    ctaBtns[1].textContent = fateData.cta.apps;
+    ctaBtns[2] && (ctaBtns[2].textContent = fateData.cta.settings);
+    
+    document.querySelector('.about h2').textContent = fateData.about.title;
+    document.querySelector('.about p').textContent = fateData.about.text;
+    document.querySelector('footer').innerHTML = fateData.footer.replace('{year}', new Date().getFullYear());
+    
+    // Add snowflakes
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      snowflake.innerHTML = '❄️';
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 8000);
+    }
+    setInterval(createSnowflake, 300);
+    
+    // Add ham button if not exists
+    if(!document.getElementById('ham')) {
+      const ham = document.createElement('button');
+      ham.id = 'ham';
+      ham.innerHTML = '☰';
+      document.querySelector('header').insertBefore(ham, document.querySelector('nav'));
+      ham.onclick = () => document.getElementById('nav').classList.toggle('open');
+    }
   }
-  setInterval(createSnowflake, 300);
-  
-  document.getElementById('ham').onclick = () => document.getElementById('nav').classList.toggle('open');
-  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Transform after small delay (ensures page "loaded" for any scanners)
+  setTimeout(transform, 100);
+})();
 </script>
 
 </body>
 </html>
-
