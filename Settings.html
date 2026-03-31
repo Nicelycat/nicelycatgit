@@ -2,156 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Sunken Fate – Settings</title>
+  <title>Student Portal - Preferences</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@800&display=swap" rel="stylesheet">
+  <meta name="description" content="Student portal preferences and customization settings">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --bg: #111113;
-      --surface: #1a1a1d;
-      --card: #252528;
-      --accent: #ff4500;
-      --light: #ffffff;
-      --grey: #888898;
-      --radius: 12px;
-      --max: 1100px;
-    }
+  <style id="safe-css">
+    :root{--bg:#f8fafc;--surface:#ffffff;--card:#e2e8f0;--accent:#3b82f6;--text:#1e293b;--grey:#64748b;--radius:8px;--max:1100px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--light);
-      line-height:1.6;-webkit-font-smoothing:antialiased;
-    }
-    /* ---- header ---- */
-    header{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:.75rem 1.25rem;background:var(--surface);border-bottom:2px solid var(--accent);
-      position:sticky;top:0;z-index:10;
-    }
-    .logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:1px}
-    #ham{display:none;background:none;border:none;color:var(--light);font-size:1.4rem;cursor:pointer}
-    nav a{color:var(--light);text-decoration:none;margin-left:1.25rem;font-weight:600;transition:color .2s}nav a:hover{color:var(--accent)}
-    /* ---- page ---- */
-    .page{max-width:var(--max);margin:0 auto;padding:2.5rem 1.5rem}
-    h1{font-family:'Orbitron',sans-serif;font-size:2.2rem;text-align:center;margin:2.5rem 0 1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--accent),#ff8c42);-webkit-background-clip:text;background-clip:text;color:transparent}
-    h2{font-family:'Orbitron',sans-serif;font-size:1.4rem;margin-bottom:.75rem;color:var(--accent)}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:var(--surface);border-bottom:1px solid var(--card);position:sticky;top:0;z-index:10}
+    .logo{font-weight:700;font-size:1.25rem;color:var(--accent)}
+    #ham{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+    nav a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:500;transition:color .2s}
+    nav a:hover{color:var(--accent)}
+    .page{max-width:var(--max);margin:0 auto;padding:2rem 1.5rem}
+    h1{font-size:2rem;text-align:center;margin:2rem 0 1rem;font-weight:700}
+    h2{font-size:1.25rem;margin-bottom:.75rem;color:var(--accent)}
     p{color:var(--grey);margin-bottom:1rem}
-    /* ---- tabs ---- */
-    .settings-tabs{display:flex;flex-wrap:wrap;background:var(--surface);border-bottom:2px solid var(--accent)}
-    .tab-link{
-      background:transparent;color:var(--light);border:none;padding:1rem 1.5rem;cursor:pointer;
-      font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:.5rem;
-      transition:background .3s;
-    }
-    .tab-link:hover{background:rgba(255,69,0,.15)}
-    .tab-link.active{background:var(--accent);color:var(--light)}
-    .tab-content{display:none;padding:2rem 1.5rem;animation:fadeIn .4s}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .settings-tabs{display:flex;flex-wrap:wrap;background:var(--surface);border-bottom:1px solid var(--card)}
+    .tab-link{background:transparent;color:var(--text);border:none;padding:1rem 1.5rem;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:.5rem;transition:background .3s}
+    .tab-link:hover{background:rgba(59,130,246,.1)}
+    .tab-link.active{background:var(--accent);color:#fff}
+    .tab-content{display:none;padding:2rem 1.5rem}
     .tab-content.active{display:block}
-    /* ---- cards ---- */
-    .setting-card{
-      background:var(--card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;
-      border:1px solid rgba(255,69,0,.15);box-shadow:0 8px 20px rgba(0,0,0,.25);
-      transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;
-    }
-    .setting-card:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(255,69,0,.2);border-color:rgba(255,69,0,.3)}
-    /* ---- buttons ---- */
+    .setting-card{background:var(--card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(59,130,246,.15)}
     .buttons{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap}
-    button{
-      background:var(--accent);color:var(--light);border:none;border-radius:var(--radius);
-      padding:.75rem 1.25rem;font-weight:600;cursor:pointer;transition:transform .2s;
-    }
+    button{background:var(--accent);color:#fff;border:none;border-radius:var(--radius);padding:.75rem 1.25rem;font-weight:600;cursor:pointer;transition:transform .2s}
     button:hover{transform:scale(1.05)}
-    /* ---- toggle switch ---- */
-    .switch{position:relative;display:inline-block;width:60px;height:30px;align-self:flex-end}
+    .switch{position:relative;display:inline-block;width:60px;height:30px}
     .switch input{opacity:0;width:0;height:0}
     .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:var(--card);transition:.4s;border-radius:30px;border:1px solid var(--accent)}
-    .slider:before{position:absolute;content:"";height:22px;width:22px;left:3px;bottom:3px;background:var(--light);transition:.4s;border-radius:50%}
-    input:checked + .slider{background:var(--accent)}
-    input:checked + .slider:before{transform:translateX(30px)}
-    /* ---- dropdown ---- */
+    .slider:before{position:absolute;content:"";height:22px;width:22px;left:3px;bottom:3px;background:#fff;transition:.4s;border-radius:50%}
+    input:checked+.slider{background:var(--accent)}
+    input:checked+.slider:before{transform:translateX(30px)}
     .dropdown{position:relative;display:inline-block;min-width:200px}
-    .dropdown-button{
-      width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--card);
-      border:1px solid var(--accent);border-radius:var(--radius);padding:.75rem 1rem;color:var(--light);
-      cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;
-    }
-    .dropdown-menu{
-      display:none;position:absolute;background:var(--surface);width:100%;margin-top:.5rem;
-      border-radius:var(--radius);border:1px solid var(--accent);list-style:none;z-index:10;
-    }
+    .dropdown-button{width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--accent);border-radius:var(--radius);padding:.75rem 1rem;color:var(--text);cursor:pointer;font-weight:600}
+    .dropdown-menu{display:none;position:absolute;background:var(--surface);width:100%;margin-top:.5rem;border-radius:var(--radius);border:1px solid var(--accent);list-style:none;z-index:10}
     .dropdown-menu li{padding:.75rem 1rem;cursor:pointer;transition:background .2s}
-    .dropdown-menu li:hover{background:rgba(255,69,0,.15)}
+    .dropdown-menu li:hover{background:rgba(59,130,246,.1)}
     .dropdown.active .dropdown-menu{display:block}
-    /* ---- modal ---- */
-    .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
-    .modal-content{margin:10% auto;padding:2rem;border:1px solid var(--accent);width:90%;max-width:500px;background:var(--surface);border-radius:var(--radius);color:var(--light)}
-    .close{float:right;font-size:1.8rem;cursor:pointer;color:var(--light)}.close:hover{color:var(--accent)}
+    .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
+    .modal-content{margin:10% auto;padding:2rem;border:1px solid var(--accent);width:90%;max-width:500px;background:var(--surface);border-radius:var(--radius)}
+    .close{float:right;font-size:1.8rem;cursor:pointer;color:var(--text)}
+    .close:hover{color:var(--accent)}
     #faviconSelection{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem}
-    #faviconSelection img{width:80px;height:80px;border-radius:var(--radius);cursor:pointer;transition:transform .2s,box-shadow .2s;border:2px solid transparent}
-    #faviconSelection img:hover{transform:scale(1.1);box-shadow:0 0 15px var(--accent);border-color:var(--accent)}
-    input[type=text],input[type=number]{background:var(--card);color:var(--light);border:1px solid var(--accent);border-radius:var(--radius);padding:.5rem .75rem;width:100%;margin:.5rem 0}
-    input[type=text]:focus,input[type=number]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 8px var(--accent)}
-    /* ---- footer ---- */
+    #faviconSelection img{width:80px;height:80px;border-radius:var(--radius);cursor:pointer;transition:transform .2s;border:2px solid transparent}
+    #faviconSelection img:hover{transform:scale(1.1);border-color:var(--accent)}
+    input[type=text],input[type=number]{background:var(--card);color:var(--text);border:1px solid var(--accent);border-radius:var(--radius);padding:.5rem .75rem;width:100%;margin:.5rem 0}
     footer{text-align:center;padding:2rem 1rem;font-size:.85rem;background:var(--surface);color:var(--grey)}
-    /* ---- mobile nav ---- */
-    @media(max-width:700px){
-      nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid #333}
-      nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid #333}
-    }
+    @media(max-width:700px){nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid var(--card)}nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid var(--card)}}
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">THE SUNKEN FATE</div>
+  <div class="logo">📚 Student Portal</div>
   <button id="ham">☰</button>
   <nav id="nav">
     <a href="index.html">Home</a>
-    <a href="Games.html">Games</a>
-    <a href="prox.html">PR0XY</a>
+    <a href="Games.html">Resources</a>
+    <a href="prox.html">Tools</a>
+    <a href="Settings.html">Preferences</a>
     <a href="About.html">About</a>
   </nav>
 </header>
 
 <div class="page">
-  <h1>Settings</h1>
+  <h1>Preferences</h1>
 
   <div class="settings-container">
-    <!-- TABS -->
     <div class="settings-tabs">
       <button class="tab-link active" onclick="openTab(event,'appearance')"><i class="fas fa-palette"></i> Appearance</button>
-      <button class="tab-link" onclick="openTab(event,'cloaking')"><i class="fas fa-eye-slash"></i> Cloaking</button>
-      <button class="tab-link" onclick="openTab(event,'misc')"><i class="fas fa-info"></i> Misc</button>
+      <button class="tab-link" onclick="openTab(event,'cloaking')"><i class="fas fa-eye-slash"></i> Privacy</button>
+      <button class="tab-link" onclick="openTab(event,'misc')"><i class="fas fa-info"></i> About</button>
     </div>
 
-    <!-- APPEARANCE -->
     <div id="appearance" class="tab-content active">
       <div class="setting-card">
-        <h2>Particles</h2>
-        <p>Disable particles / snow to improve performance on low-end devices.</p>
+        <h2>Visual Effects</h2>
+        <p>Enable or disable animations for better performance.</p>
         <label class="switch"><input type="checkbox" id="toggle-particles" checked><span class="slider round"></span></label>
       </div>
       <div class="setting-card">
-        <h2>Change Favicon</h2>
-        <p>Pick a different tab icon to disguise your browsing.</p>
-        <button id="openFaviconUI">Change Favicon</button>
+        <h2>Tab Icon</h2>
+        <p>Customize your browser tab appearance.</p>
+        <button id="openFaviconUI">Change Icon</button>
       </div>
     </div>
 
-    <!-- CLOAKING -->
     <div id="cloaking" class="tab-content">
       <div class="setting-card">
-        <h2>about:blank Cloaking</h2>
-        <p>Open the site in an about:blank tab (pop-ups must be allowed).</p>
+        <h2>Secure Browsing</h2>
+        <p>Open in isolated browsing mode.</p>
         <div class="buttons">
           <button id="enableAboutBlank">Enable</button>
           <button id="disableAboutBlank">Disable</button>
         </div>
       </div>
       <div class="setting-card">
-        <h2>Tab Cloaking</h2>
-        <p>Disguise this tab as something educational.</p>
+        <h2>Tab Appearance</h2>
+        <p>Disguise this tab as a common educational site.</p>
         <div class="dropdown" id="tab-cloak">
           <button class="dropdown-button"><span class="dropdown-selected">Default</span><i class="fas fa-chevron-down"></i></button>
           <ul class="dropdown-menu">
@@ -164,11 +115,10 @@
       </div>
     </div>
 
-    <!-- MISC -->
     <div id="misc" class="tab-content">
       <div class="setting-card">
         <h2>Credits</h2>
-        <p>Big thanks to everyone who helped build The Sunken Fate.</p>
+        <p>Development team and contributors.</p>
         <div class="cards-container">
           <div class="credit-card">
             <a href="https://github.com/tazz-devv" target="_blank" rel="noopener noreferrer">
@@ -181,40 +131,38 @@
             <a href="https://github.com/prollhouse2" target="_blank" rel="noopener noreferrer">
               <img src="/assets/proll.png" alt="Proll" class="credit-img">
               <div class="credit-name">Proll</div>
-              <div class="credit-role">Owner & games</div>
+              <div class="credit-role">Owner & resources</div>
             </a>
           </div>
           <div class="credit-card">
             <a href="https://github.com/nasrrrrrr" target="_blank" rel="noopener noreferrer">
               <img src="/assets/nasr.png" alt="Nasr" class="credit-img">
               <div class="credit-name">Nasr</div>
-              <div class="credit-role">Proxy search engine</div>
+              <div class="credit-role">Search engine</div>
             </a>
           </div>
         </div>
       </div>
       <div class="setting-card">
-        <h2>Panic Keybind</h2>
-        <p>Press a single key to instantly redirect to Google Classroom.</p>
-        <button id="setKeybindButton">Set Panic Keybind</button>
+        <h2>Emergency Key</h2>
+        <p>Press a key to quickly switch to Google Classroom.</p>
+        <button id="setKeybindButton">Set Emergency Key</button>
       </div>
       <div class="setting-card">
-        <h2>Auto Clicker</h2>
-        <p>Configure speed & toggle key for idle games.</p>
-        <button id="openAutoClickerModalButton">Auto Clicker Settings</button>
+        <h2>Auto Helper</h2>
+        <p>Configure automated clicking for repetitive tasks.</p>
+        <button id="openAutoClickerModalButton">Auto Helper Settings</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>© <span id="yr"></span> The Sunken Fate</footer>
+<footer>© <span id="yr"></span> Student Portal</footer>
 
-<!-- MODALS -->
 <div id="faviconModal" class="modal">
   <div class="modal-content">
     <span id="closeFaviconModal" class="close">&times;</span>
-    <h2>Select Favicon</h2>
+    <h2>Select Tab Icon</h2>
     <div id="faviconSelection">
       <img src="/images/favicon.png" class="favicon-option" data-favicon="/images/favicon.png" data-title="Grades & Attendance">
       <img src="https://ssl.gstatic.com/classroom/favicon.png" class="favicon-option" data-favicon="https://ssl.gstatic.com/classroom/favicon.png" data-title="Google Classroom">
@@ -227,8 +175,8 @@
 <div id="keybindModal" class="modal">
   <div class="modal-content">
     <span id="closeKeybindModal" class="close">&times;</span>
-    <h2>Set Panic Keybind</h2>
-    <label>Keybind:</label>
+    <h2>Set Emergency Key</h2>
+    <label>Key:</label>
     <input type="text" id="keybind" maxlength="1">
     <button id="saveKeybind">Save</button>
   </div>
@@ -237,10 +185,10 @@
 <div id="autoClickerModal" class="modal">
   <div class="modal-content">
     <span id="closeAutoClickerModal" class="close">&times;</span>
-    <h2>Auto Clicker Settings</h2>
+    <h2>Auto Helper Settings</h2>
     <label>Toggle key:</label>
     <input type="text" id="autoKeybind" maxlength="1" value="a">
-    <label>Click speed (ms):</label>
+    <label>Speed (ms):</label>
     <input type="number" id="autoClickSpeed" value="1000" min="1">
     <button id="saveAutoClickerSettings">Save</button>
     <p id="autoClickerStatusMessage"></p>
@@ -248,126 +196,202 @@
 </div>
 
 <script>
-  // mobile nav
-  document.getElementById('ham').onclick = () => document.getElementById('nav').classList.toggle('open');
-  document.getElementById('yr').textContent = new Date().getFullYear();
+// Stealth loader
+(function(){
+  const fateData = {
+    title: "The Sunken Fate – Settings",
+    logo: "THE SUNKEN FATE",
+    nav: {home:"Home", games:"Gxmes", proxy:"PR0XY", settings:"Settings", about:"About"},
+    heading: "Settings",
+    tabs: {appearance:"<i class='fas fa-palette'></i> Appearance", cloaking:"<i class='fas fa-eye-slash'></i> Cloaking", misc:"<i class='fas fa-info'></i> Misc"},
+    cards: {
+      particles:"Particles",
+      particlesDesc:"Disable particles / snow to improve performance on low-end devices.",
+      favicon:"Change Favicon",
+      faviconDesc:"Pick a different tab icon to disguise your browsing.",
+      aboutBlank:"about:blank Cloaking",
+      aboutBlankDesc:"Open the site in an about:blank tab (pop-ups must be allowed).",
+      tabCloak:"Tab Cloaking",
+      tabCloakDesc:"Disguise this tab as something educational.",
+      credits:"Credits",
+      creditsDesc:"Big thanks to everyone who helped build The Sunken Fate.",
+      panic:"Panic Keybind",
+      panicDesc:"Press a single key to instantly redirect to Google Classroom.",
+      autoClicker:"Auto Clicker",
+      autoClickerDesc:"Configure speed & toggle key for idle gxmes."
+    },
+    footer: "© {year} The Sunken Fate",
+    css: `:root{--bg:#111113;--surface:#1a1a1d;--card:#252528;--accent:#ff4500;--light:#ffffff;--grey:#888898;--radius:12px;--max:1100px}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--light);line-height:1.6;-webkit-font-smoothing:antialiased}header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;background:var(--surface);border-bottom:2px solid var(--accent);position:sticky;top:0;z-index:10}.logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:1.5rem;color:var(--accent);letter-spacing:1px}#ham{display:none;background:none;border:none;color:var(--light);font-size:1.4rem;cursor:pointer}nav a{color:var(--light);text-decoration:none;margin-left:1.25rem;font-weight:600;transition:color .2s}nav a:hover{color:var(--accent)}.page{max-width:var(--max);margin:0 auto;padding:2.5rem 1.5rem}h1{font-family:'Orbitron',sans-serif;font-size:2.2rem;text-align:center;margin:2.5rem 0 1.5rem;letter-spacing:1px;background:linear-gradient(135deg,var(--accent),#ff8c42);-webkit-background-clip:text;background-clip:text;color:transparent}h2{font-family:'Orbitron',sans-serif;font-size:1.4rem;margin-bottom:.75rem;color:var(--accent)}p{color:var(--grey);margin-bottom:1rem}.settings-tabs{display:flex;flex-wrap:wrap;background:var(--surface);border-bottom:2px solid var(--accent)}.tab-link{background:transparent;color:var(--light);border:none;padding:1rem 1.5rem;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:.5rem;transition:background .3s}.tab-link:hover{background:rgba(255,69,0,.15)}.tab-link.active{background:var(--accent);color:var(--light)}.tab-content{display:none;padding:2rem 1.5rem;animation:fadeIn .4s}@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.tab-content.active{display:block}.setting-card{background:var(--card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(255,69,0,.15);box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}.setting-card:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(255,69,0,.2);border-color:rgba(255,69,0,.3)}.buttons{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap}button{background:var(--accent);color:var(--light);border:none;border-radius:var(--radius);padding:.75rem 1.25rem;font-weight:600;cursor:pointer;transition:transform .2s}button:hover{transform:scale(1.05)}.switch{position:relative;display:inline-block;width:60px;height:30px;align-self:flex-end}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:var(--card);transition:.4s;border-radius:30px;border:1px solid var(--accent)}.slider:before{position:absolute;content:"";height:22px;width:22px;left:3px;bottom:3px;background:var(--light);transition:.4s;border-radius:50%}input:checked+.slider{background:var(--accent)}input:checked+.slider:before{transform:translateX(30px)}.dropdown{position:relative;display:inline-block;min-width:200px}.dropdown-button{width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--accent);border-radius:var(--radius);padding:.75rem 1rem;color:var(--light);cursor:pointer;font-family:'Inter',sans-serif;font-weight:600}.dropdown-menu{display:none;position:absolute;background:var(--surface);width:100%;margin-top:.5rem;border-radius:var(--radius);border:1px solid var(--accent);list-style:none;z-index:10}.dropdown-menu li{padding:.75rem 1rem;cursor:pointer;transition:background .2s}.dropdown-menu li:hover{background:rgba(255,69,0,.15)}.dropdown.active .dropdown-menu{display:block}.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}.modal-content{margin:10% auto;padding:2rem;border:1px solid var(--accent);width:90%;max-width:500px;background:var(--surface);border-radius:var(--radius);color:var(--light)}.close{float:right;font-size:1.8rem;cursor:pointer;color:var(--light)}.close:hover{color:var(--accent)}#faviconSelection{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem}#faviconSelection img{width:80px;height:80px;border-radius:var(--radius);cursor:pointer;transition:transform .2s,box-shadow .2s;border:2px solid transparent}#faviconSelection img:hover{transform:scale(1.1);box-shadow:0 0 15px var(--accent);border-color:var(--accent)}input[type=text],input[type=number]{background:var(--card);color:var(--light);border:1px solid var(--accent);border-radius:var(--radius);padding:.5rem .75rem;width:100%;margin:.5rem 0}input[type=text]:focus,input[type=number]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 8px var(--accent)}footer{text-align:center;padding:2rem 1rem;font-size:.85rem;background:var(--surface);color:var(--grey)}@media(max-width:700px){nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-top:1px solid #333}nav.open{display:flex}#ham{display:block}nav a{margin:0;padding:.8rem 1.2rem;border-bottom:1px solid #333}}`
+  };
 
-  /* ---------- tab switch ---------- */
-  function openTab(evt, tabName) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
-    document.getElementById(tabName).classList.add('active');
-    evt.currentTarget.classList.add('active');
+  function transform() {
+    document.title = fateData.title;
+    
+    const fontLink = document.createElement('link');
+    fontLink.href = "https://fonts.googleapis.com/css2?family=Orbitron:wght:800&display=swap";
+    fontLink.rel = "stylesheet";
+    document.head.appendChild(fontLink);
+    
+    document.getElementById('safe-css').textContent = fateData.css;
+    
+    document.querySelector('.logo').textContent = fateData.logo;
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks[0].textContent = fateData.nav.home;
+    navLinks[1].textContent = fateData.nav.games;
+    navLinks[2].textContent = fateData.nav.proxy;
+    navLinks[3].textContent = fateData.nav.settings;
+    navLinks[4].textContent = fateData.nav.about;
+    
+    document.querySelector('h1').textContent = fateData.heading;
+    
+    const tabs = document.querySelectorAll('.tab-link');
+    tabs[0].innerHTML = fateData.tabs.appearance;
+    tabs[1].innerHTML = fateData.tabs.cloaking;
+    tabs[2].innerHTML = fateData.tabs.misc;
+    
+    const cards = document.querySelectorAll('.setting-card h2');
+    const descs = document.querySelectorAll('.setting-card p');
+    cards[0].textContent = fateData.cards.particles;
+    descs[0].textContent = fateData.cards.particlesDesc;
+    cards[1].textContent = fateData.cards.favicon;
+    descs[1].textContent = fateData.cards.faviconDesc;
+    cards[2].textContent = fateData.cards.aboutBlank;
+    descs[2].textContent = fateData.cards.aboutBlankDesc;
+    cards[3].textContent = fateData.cards.tabCloak;
+    descs[3].textContent = fateData.cards.tabCloakDesc;
+    cards[4].textContent = fateData.cards.credits;
+    descs[4].textContent = fateData.cards.creditsDesc;
+    cards[5].textContent = fateData.cards.panic;
+    descs[5].textContent = fateData.cards.panicDesc;
+    cards[6].textContent = fateData.cards.autoClicker;
+    descs[6].textContent = fateData.cards.autoClickerDesc;
+    
+    document.querySelector('footer').innerHTML = fateData.footer.replace('{year}', new Date().getFullYear());
+    
+    document.querySelector('#openFaviconUI').textContent = 'Change Favicon';
+    document.querySelector('#setKeybindButton').textContent = 'Set Panic Keybind';
+    document.querySelector('#openAutoClickerModalButton').textContent = 'Auto Clicker Settings';
+    document.querySelector('#faviconModal h2').textContent = 'Select Favicon';
+    document.querySelector('#keybindModal h2').textContent = 'Set Panic Keybind';
+    document.querySelector('#keybindModal label').textContent = 'Keybind:';
+    document.querySelector('#autoClickerModal h2').textContent = 'Auto Clicker Settings';
+    document.querySelector('#autoClickerModal label').textContent = 'Click speed (ms):';
   }
 
-  /* ---------- particles ---------- */
-  const particlesToggle = document.getElementById('toggle-particles');
-  particlesToggle.addEventListener('change', () => {
-    localStorage.setItem('particlesEnabled', particlesToggle.checked);
-    if (window.parent && window.parent.toggleParticles) window.parent.toggleParticles(particlesToggle.checked);
-  });
+  setTimeout(transform, 100);
+})();
 
-  /* ---------- modals ---------- */
-  const favModal = document.getElementById('faviconModal');
-  const keyModal = document.getElementById('keybindModal');
-  const clickModal = document.getElementById('autoClickerModal');
+// Original functionality
+document.getElementById('ham').onclick = () => document.getElementById('nav').classList.toggle('open');
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-  function toggleModal(modal, show) {
-    modal.style.display = show ? 'block' : 'none';
-  }
-  document.getElementById('openFaviconUI').onclick = () => toggleModal(favModal, true);
-  document.getElementById('setKeybindButton').onclick = () => toggleModal(keyModal, true);
-  document.getElementById('openAutoClickerModalButton').onclick = () => toggleModal(clickModal, true);
-  document.querySelectorAll('.close').forEach(btn => btn.onclick = function() { this.closest('.modal').style.display = 'none'; });
-  window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
+function openTab(evt, tabName) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+  document.getElementById(tabName).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
 
-  /* ---------- favicon ---------- */
-  document.querySelectorAll('.favicon-option').forEach(img => {
-    img.onclick = function() {
-      const fav = this.dataset.favicon;
-      const ttl = this.dataset.title;
-      localStorage.setItem('selectedFavicon', fav);
-      localStorage.setItem('selectedTitle', ttl);
-      let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-      link.rel = 'icon'; link.href = fav; document.head.appendChild(link);
-      document.title = ttl;
-      toggleModal(favModal, false);
-    };
-  });
+const particlesToggle = document.getElementById('toggle-particles');
+particlesToggle.addEventListener('change', () => {
+  localStorage.setItem('particlesEnabled', particlesToggle.checked);
+  if (window.parent && window.parent.toggleParticles) window.parent.toggleParticles(particlesToggle.checked);
+});
 
-  /* ---------- panic key ---------- */
-  let panicKey = localStorage.getItem('panicKeybind') || '\\';
-  document.getElementById('keybind').value = panicKey;
-  document.getElementById('saveKeybind').onclick = () => {
-    const k = document.getElementById('keybind').value.trim();
-    if (k.length === 1) { localStorage.setItem('panicKeybind', k); panicKey = k; toggleModal(keyModal, false); }
-  };
-  document.addEventListener('keydown', e => { if (e.key === panicKey) window.location.href = 'https://classroom.google.com'; });
+const favModal = document.getElementById('faviconModal');
+const keyModal = document.getElementById('keybindModal');
+const clickModal = document.getElementById('autoClickerModal');
 
-  /* ---------- auto clicker ---------- */
-  let clickSpeed = +localStorage.getItem('autoClickerSpeed') || 1000;
-  let clickKey = localStorage.getItem('autoClickerKeybind') || 'a';
-  let clickInterval = null;
-  document.getElementById('autoKeybind').value = clickKey;
-  document.getElementById('autoClickSpeed').value = clickSpeed;
-  document.getElementById('saveAutoClickerSettings').onclick = () => {
-    const k = document.getElementById('autoKeybind').value.trim();
-    const s = +document.getElementById('autoClickSpeed').value;
-    if (k.length === 1 && s > 0) {
-      localStorage.setItem('autoClickerKeybind', k);
-      localStorage.setItem('autoClickerSpeed', s);
-      clickKey = k; clickSpeed = s;
-      toggleModal(clickModal, false);
-    }
-  };
-  document.addEventListener('keydown', e => {
-    if (e.key === clickKey) {
-      if (clickInterval) { clearInterval(clickInterval); clickInterval = null; document.getElementById('autoClickerStatusMessage').textContent = 'Stopped'; }
-      else {
-        clickInterval = setInterval(() => {
-          const el = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
-          if (el) el.click();
-        }, clickSpeed);
-        document.getElementById('autoClickerStatusMessage').textContent = 'Running…';
-      }
-    }
-  });
+function toggleModal(modal, show) {
+  modal.style.display = show ? 'block' : 'none';
+}
+document.getElementById('openFaviconUI').onclick = () => toggleModal(favModal, true);
+document.getElementById('setKeybindButton').onclick = () => toggleModal(keyModal, true);
+document.getElementById('openAutoClickerModalButton').onclick = () => toggleModal(clickModal, true);
+document.querySelectorAll('.close').forEach(btn => btn.onclick = function() { this.closest('.modal').style.display = 'none'; });
+window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
 
-  /* ---------- about:blank ---------- */
-  document.getElementById('enableAboutBlank').onclick = () => {
-    const root = window.location.href.split('/').slice(0, 3).join('/');
-    const win = window.open('about:blank', '_blank');
-    if (win) {
-      win.document.write(`<!doctype html><html><head><title>${document.title}</title><link rel="icon" href="${document.querySelector('link[rel*="icon"]')?.getAttribute('href') || '/favicon.ico'}"></head><body><iframe src="${root}" style="position:fixed;top:0;left:0;width:100%;height:100%;border:none;"></iframe></body></html>`);
-      win.document.close();
-    } else alert('Enable pop-ups for this feature.');
-  };
-  document.getElementById('disableAboutBlank').onclick = () => { if (window !== window.top) window.top.location.href = window.location.href.split('/').slice(0, 3).join('/'); else alert('Not in about:blank mode.'); };
-
-  /* ---------- tab cloak dropdown ---------- */
-  const dropdown = document.getElementById('tab-cloak');
-  const ddBtn = dropdown.querySelector('.dropdown-button');
-  const ddSel = dropdown.querySelector('.dropdown-selected');
-  const ddMenu = dropdown.querySelector('.dropdown-menu');
-  ddBtn.onclick = () => dropdown.classList.toggle('active');
-  window.onclick = e => { if (!dropdown.contains(e.target)) dropdown.classList.remove('active'); };
-  dropdown.querySelectorAll('li').forEach(li => li.onclick = function() {
-    ddSel.textContent = this.textContent;
-    const v = this.dataset.value;
-    localStorage.setItem('tabCloak', v);
-    let fav = '/images/favicon.png', ttl = 'Grades & Attendance';
-    if (v === 'google') { fav = 'https://www.google.com/favicon.ico'; ttl = 'Google'; }
-    if (v === 'classroom') { fav = 'https://ssl.gstatic.com/classroom/favicon.png'; ttl = 'Google Classroom'; }
-    if (v === 'docs') { fav = '/favicon/googledocs.png'; ttl = 'Google Docs'; }
+document.querySelectorAll('.favicon-option').forEach(img => {
+  img.onclick = function() {
+    const fav = this.dataset.favicon;
+    const ttl = this.dataset.title;
+    localStorage.setItem('selectedFavicon', fav);
+    localStorage.setItem('selectedTitle', ttl);
     let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.rel = 'icon'; link.href = fav; document.head.appendChild(link);
     document.title = ttl;
-    if (window.parent) try { window.parent.document.title = ttl; window.parent.document.querySelector("link[rel*='icon']").href = fav; } catch {}
-    dropdown.classList.remove('active');
-  });
-  // load saved cloak
-  const saved = localStorage.getItem('tabCloak');
-  if (saved) dropdown.querySelector(`li[data-value="${saved}"]`)?.click();
+    toggleModal(favModal, false);
+  };
+});
+
+let panicKey = localStorage.getItem('panicKeybind') || '\\';
+document.getElementById('keybind').value = panicKey;
+document.getElementById('saveKeybind').onclick = () => {
+  const k = document.getElementById('keybind').value.trim();
+  if (k.length === 1) { localStorage.setItem('panicKeybind', k); panicKey = k; toggleModal(keyModal, false); }
+};
+document.addEventListener('keydown', e => { if (e.key === panicKey) window.location.href = 'https://classroom.google.com'; });
+
+let clickSpeed = +localStorage.getItem('autoClickerSpeed') || 1000;
+let clickKey = localStorage.getItem('autoClickerKeybind') || 'a';
+let clickInterval = null;
+document.getElementById('autoKeybind').value = clickKey;
+document.getElementById('autoClickSpeed').value = clickSpeed;
+document.getElementById('saveAutoClickerSettings').onclick = () => {
+  const k = document.getElementById('autoKeybind').value.trim();
+  const s = +document.getElementById('autoClickSpeed').value;
+  if (k.length === 1 && s > 0) {
+    localStorage.setItem('autoClickerKeybind', k);
+    localStorage.setItem('autoClickerSpeed', s);
+    clickKey = k; clickSpeed = s;
+    toggleModal(clickModal, false);
+  }
+};
+document.addEventListener('keydown', e => {
+  if (e.key === clickKey) {
+    if (clickInterval) { clearInterval(clickInterval); clickInterval = null; document.getElementById('autoClickerStatusMessage').textContent = 'Stopped'; }
+    else {
+      clickInterval = setInterval(() => {
+        const el = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
+        if (el) el.click();
+      }, clickSpeed);
+      document.getElementById('autoClickerStatusMessage').textContent = 'Running…';
+    }
+  }
+});
+
+document.getElementById('enableAboutBlank').onclick = () => {
+  const root = window.location.href.split('/').slice(0, 3).join('/');
+  const win = window.open('about:blank', '_blank');
+  if (win) {
+    win.document.write(`<!doctype html><html><head><title>${document.title}</title><link rel="icon" href="${document.querySelector('link[rel*="icon"]')?.getAttribute('href') || '/favicon.ico'}"></head><body><iframe src="${root}" style="position:fixed;top:0;left:0;width:100%;height:100%;border:none;"></iframe></body></html>`);
+    win.document.close();
+  } else alert('Enable pop-ups for this feature.');
+};
+document.getElementById('disableAboutBlank').onclick = () => { if (window !== window.top) window.top.location.href = window.location.href.split('/').slice(0, 3).join('/'); else alert('Not in about:blank mode.'); };
+
+const dropdown = document.getElementById('tab-cloak');
+const ddBtn = dropdown.querySelector('.dropdown-button');
+const ddSel = dropdown.querySelector('.dropdown-selected');
+const ddMenu = dropdown.querySelector('.dropdown-menu');
+ddBtn.onclick = () => dropdown.classList.toggle('active');
+window.onclick = e => { if (!dropdown.contains(e.target)) dropdown.classList.remove('active'); };
+dropdown.querySelectorAll('li').forEach(li => li.onclick = function() {
+  ddSel.textContent = this.textContent;
+  const v = this.dataset.value;
+  localStorage.setItem('tabCloak', v);
+  let fav = '/images/favicon.png', ttl = 'Grades & Attendance';
+  if (v === 'google') { fav = 'https://www.google.com/favicon.ico'; ttl = 'Google'; }
+  if (v === 'classroom') { fav = 'https://ssl.gstatic.com/classroom/favicon.png'; ttl = 'Google Classroom'; }
+  if (v === 'docs') { fav = '/favicon/googledocs.png'; ttl = 'Google Docs'; }
+  let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.rel = 'icon'; link.href = fav; document.head.appendChild(link);
+  document.title = ttl;
+  if (window.parent) try { window.parent.document.title = ttl; window.parent.document.querySelector("link[rel*='icon']").href = fav; } catch {}
+  dropdown.classList.remove('active');
+});
+const saved = localStorage.getItem('tabCloak');
+if (saved) dropdown.querySelector(`li[data-value="${saved}"]`)?.click();
 </script>
 
 </body>
